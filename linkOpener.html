@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Opener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 80%;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            resize: none;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Open link in new tabs</h2>
+        <textarea id="urlsTextArea" placeholder="Enter each link url to open on a new line..."></textarea>
+        <br>
+        <button onclick="openTabs()">Open links</button>
+    </div>
+    <script>
+        function openTabs() {
+            
+            const textArea = document.getElementById('urlsTextArea');
+            const lines = textArea.value.split('\n');
+            lines.forEach(line => {
+                if (line.trim() !== '') {                    
+                    window.open(line, '_blank');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
