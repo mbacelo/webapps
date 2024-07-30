@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +15,16 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 80%;
         }
+
         textarea {
             width: 100%;
             box-sizing: border-box;
@@ -33,6 +36,7 @@
             font-size: 16px;
             resize: none;
         }
+
         button {
             background-color: #007BFF;
             color: white;
@@ -42,11 +46,13 @@
             font-size: 16px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Open link in new tabs</h2>
@@ -56,15 +62,20 @@
     </div>
     <script>
         function openTabs() {
-            
-            const textArea = document.getElementById('urlsTextArea');
-            const lines = textArea.value.split('\n');
-            lines.forEach(line => {
-                if (line.trim() !== '') {                    
-                    window.open(line, '_blank');
-                }
-            });
+            try {                
+                const textArea = document.getElementById('urlsTextArea');
+                const lines = textArea.value.split('\n');
+                lines.forEach(line => {
+                    if (line.trim() !== '') {
+                        window.open(line, '_blank');
+                    }
+                });
+            } catch (error) {
+                console.log("Open tabs error:", error);
+                alert(error);
+            }
         }
     </script>
 </body>
+
 </html>
